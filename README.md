@@ -40,27 +40,27 @@ Table of Contents
   * [Credits](#credits)
   * [Contact](#contact)
 
----
-
 Introduction
 ============
-
----
+    To be written.
 
 Installation
 ===
 * ### Getting Started
+      To be written.
 * ### Installing
-
----
+      To be written.
 
 Usage
 =====
 * ### Creating a new application
-* ### Running the application
-* ### Testing the application
+      To be written.
 
----
+* ### Running the application
+      To be written.
+
+* ### Testing the application
+      To be written.
 
 Features
 ========
@@ -75,8 +75,6 @@ Features
    * #### Logging
    * #### Email
 
----
-
 Deployment
 ==========
 * ### Deploying the application
@@ -87,48 +85,38 @@ Deployment
 * ### Deploying the application to Digital Ocean
 * ### Deploying the application to Netlify
 
----
-
 Licenses
 =======
 * ### Main License
-* ### Library Licenses
+      To be written.
 
----
+* ### Library Licenses
+      To be written.
 
 Contributing
 ============
-
----
+      To be written.
 
 Extra Stuff
 ==========
-* ### Future Plans
+* ## Future Plans
+      To be written.
 
----
+* ## FAQ
+      To be written.  
 
-FAQ
-====
+* ## Support
+      To be written.
 
----
+* ## Acknowledgements
+      To be written.
 
-Support
-=======
+* ## Credits
+      To be written.
 
----
+* ## Contact
+      To be written.
 
-Acknowledgements
-================
-
----
-
-Credits
-=======
-
----
-
-Contact
-=======
 
 
 
