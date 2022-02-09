@@ -74,7 +74,6 @@ Features
    * #### Caching
    * #### Localization
    * #### Logging
-   * #### Email
 
 Deployment
 ==========
