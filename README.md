@@ -34,7 +34,6 @@ Table of Contents
 
 * [Extra Stuff](#extra-stuff)
   * [Future Plans](#future-plans)
-    * [TODO List](#todo-list)
   * [FAQ](#faq)
   * [Support](#support)
   * [Acknowledgements](#acknowledgements)
