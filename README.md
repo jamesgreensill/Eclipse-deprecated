@@ -1,5 +1,5 @@
 # Application Engine
-Author - [@jwrmg](https:://www.github.com/jwrmg) | [GitHub](https:://www.github.com/jwrmg) | [Discord]() 
+Author - [@jwrmg](https://www.github.com/jwrmg) | [GitHub](https://www.github.com/jwrmg) | [Discord]() 
 * Started on 09.02.2022.
 * Last Update on 09.02.2022.   
 
