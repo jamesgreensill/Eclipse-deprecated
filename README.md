@@ -28,7 +28,7 @@ Table of Contents
     * [Deploying the application to Digital Ocean](#deploying-the-application-to-digital-ocean)
     * [Deploying the application to Netlify](#deploying-the-application-to-netlify)
 * [Licenses](#licenses)
-    * [Main License](#core-license)
+    * [Main License](#main-license)
     * [Library Licenses](#library-licenses)
 * [Contributing](#contributing)
 
