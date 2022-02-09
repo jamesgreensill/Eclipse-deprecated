@@ -69,12 +69,26 @@ Features
 
 * ### Completed
 * ### In Development
+  * #### Core Engine Framework (09.02.2022)
 * ### Planned
-   * #### Authorization
-   * #### Error Handling
+   * #### Authentication & Authorization Microservice
+     * Web Tokens
+   * #### Abstract Base Model
+   * #### Notification Microservice
+     * Email
+     * SMS
+     * Push Notifications
+   * #### Request & Response Logging
+   * #### Throttling
+   * #### Asynchronous Operations
+   * #### Error Logging Microservice
    * #### Caching
    * #### Localization
    * #### Logging
+   * #### Data Analytics
+   * #### Entity Framework
+   * #### Queueing
+   * #### and more...
 
 Deployment
 ==========
