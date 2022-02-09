@@ -39,7 +39,8 @@ Table of Contents
   * [Credits](#credits)
   * [Contact](#contact)
 
-============
+---
+
 Introduction
 ============
     To be written.
