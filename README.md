@@ -98,8 +98,8 @@ Licenses
       To be written.
 
 * ### Library Licenses
-* [ImGui License](https://github.com/mellinoe/ImGui.NET/blob/master/LICENSE).
-* [Raylib License](https://github.com/ChrisDill/Raylib-cs/blob/master/LICENSE).
+ * [ImGui License](https://github.com/mellinoe/ImGui.NET/blob/master/LICENSE).
+ * [Raylib License](https://github.com/ChrisDill/Raylib-cs/blob/master/LICENSE).
 
 Contributing
 ============
