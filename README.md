@@ -17,7 +17,7 @@ Table of Contents
     * [Testing the application](#testing-the-application)
 * [Features](#features)
   * [Completed](#completed)
-  * [In Progress](#in-progress)
+  * [In Development](#in-development)
   * [Planned](#planned)
 * [Deployment](#deployment)
     * [Deploying the application](#deploying-the-application)
@@ -64,22 +64,17 @@ Usage
 
 Features
 ========
-* <details>
-    <summary>Completed</summary>
-  </details>
-* <details>
-    <summary>In Development</summary>
-  </details>
-* <details>
-    <summary>Planned</summary>
 
-    * #### Authorization
-    * #### Error Handling
-    * #### Caching
-    * #### Localization
-    * #### Logging
-    * #### Email
-  </details>
+* ### Completed
+* ### In Development
+* ### Planned
+   * #### Authorization
+   * #### Error Handling
+   * #### Caching
+   * #### Localization
+   * #### Logging
+   * #### Email
+
 ---
 
 Deployment
