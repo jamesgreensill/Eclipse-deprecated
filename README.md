@@ -146,6 +146,15 @@ Extra Stuff
 * ## Contact
       To be written.
 
+---
+
+#### Please contact me for removal if you or your resources are in this section.
+<details>
+<summary>Resources of Study.</summary>
+
+* [Raylib CheatSheet - Raylib.com](https://www.raylib.com/cheatsheet/cheatsheet.html)
+* [Yeet Engine - Michael Kirsch](https://github.com/MichaelKirsch/YEET-Engine)
+</details>
 
 
 
