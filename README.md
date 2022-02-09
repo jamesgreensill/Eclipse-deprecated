@@ -79,12 +79,19 @@ Features
 Deployment
 ==========
 * ### Deploying the application
+        To be written.
 * ### Deploying the application to Google Cloud
+        To be written.
 * ### Deploying the application to Heroku
+        To be written.
 * ### Deploying the application to Azure
+        To be written.
 * ### Deploying the application to AWS
+        To be written.
 * ### Deploying the application to Digital Ocean
+        To be written.
 * ### Deploying the application to Netlify
+        To be written.
 
 
 Libraries
