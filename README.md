@@ -27,6 +27,7 @@ Table of Contents
     * [Deploying the application to AWS](#deploying-the-application-to-aws)
     * [Deploying the application to Digital Ocean](#deploying-the-application-to-digital-ocean)
     * [Deploying the application to Netlify](#deploying-the-application-to-netlify)
+* [Libraries](#libraries)
 * [Licenses](#licenses)
     * [Main License](#main-license)
     * [Library Licenses](#library-licenses)
@@ -85,13 +86,20 @@ Deployment
 * ### Deploying the application to Digital Ocean
 * ### Deploying the application to Netlify
 
+
+Libraries
+=========
+* [ImGui C# Binding - Eric Mellino](https://github.com/mellinoe/ImGui.NET).
+* [Raylib C# Binding - Chris Dill](https://github.com/ChrisDill/Raylib-cs). (Until in house rendering engine is implemented) 
+
 Licenses
 =======
 * ### Main License
       To be written.
 
 * ### Library Licenses
-      To be written.
+* [ImGui License](https://github.com/mellinoe/ImGui.NET/blob/master/LICENSE).
+* [Raylib License](https://github.com/ChrisDill/Raylib-cs/blob/master/LICENSE).
 
 Contributing
 ============
