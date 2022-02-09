@@ -1,11 +1,10 @@
 # Application Engine
-Author - [@jwrmg](github.com/jwrmg) | [GitHub](github.com/jwrmg) | [Discord]()  | [Instagram](instagram.com/jwrmg)
+Author - [@jwrmg](https://www.github.com/jwrmg) | [GitHub](https://www.github.com/jwrmg) | [Discord]() 
 * Started on 09.02.2022.
 * Last Update on 09.02.2022.   
 
 Table of Contents
 ====================
----
 
 * [Introduction](#introduction)
 * [Installation](#installation)
@@ -41,6 +40,8 @@ Table of Contents
   * [Credits](#credits)
   * [Contact](#contact)
 
+---
+
 Introduction
 ============
     To be written.
@@ -74,7 +75,6 @@ Features
    * #### Caching
    * #### Localization
    * #### Logging
-   * #### Email
 
 Deployment
 ==========
