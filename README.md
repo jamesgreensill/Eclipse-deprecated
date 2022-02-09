@@ -5,7 +5,6 @@ Author - [@jwrmg](github.com/jwrmg) | [GitHub](github.com/jwrmg) | [Discord]()  
 
 Table of Contents
 ====================
----
 
 * [Introduction](#introduction)
 * [Installation](#installation)
