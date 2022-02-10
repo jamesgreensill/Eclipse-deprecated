@@ -56,24 +56,56 @@ Installation
 Usage
 =====
 * ### Creating a new application
-      To be written.
+```C#
+class ExampleApplication : Application
+ {
+     protected override void OnApplicationStart()
+     {
+         // Code here will be executed when the application starts.
+     }
 
-* ### Running the application
-      To be written.
+     protected override void OnApplicationTick()
+     {
+         // Code here will be executed at the beginning of each frame.
+     }
 
-* ### Testing the application
-      To be written.
+     protected override void OnApplicationLateTick()
+     {
+         // Code here will be executed at the end of each frame.
+     }
 
+     protected override void OnApplicationDraw()
+     {
+         // Code here will be executed when the application draws.
+     }
+
+     protected override void OnApplicationEnd()
+     {
+         // Code here will be executed when the application ends.
+     }
+ }
+```
+  * ### Running the application
+```C#
+static void Main()
+{
+    // Create a new application.
+    ApplicationDriver.Create<ExmapleApplication>();
+    // Run the application. (this will run until ApplicationDriver.Stop() is called)
+    ApplicationDriver.Run();
+}
+  ```
 Features
 ========
 
 * ### Completed
+  * #### Abstract Base Model (10.02.2022)
 * ### In Development
   * #### Core Engine Framework (09.02.2022)
+  * #### Entity Framework (10.02.2022)
 * ### Planned
    * #### Authentication & Authorization Microservice
      * Web Tokens
-   * #### Abstract Base Model
    * #### Notification Microservice
      * Email
      * SMS
@@ -86,7 +118,6 @@ Features
    * #### Localization
    * #### Logging
    * #### Data Analytics
-   * #### Entity Framework
    * #### Queueing
    * #### and more...
 
