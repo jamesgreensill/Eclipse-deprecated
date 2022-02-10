@@ -56,36 +56,76 @@ Installation
 Usage
 =====
 * ### Creating a new application
-```C#
-class ExampleApplication : Application
- {
-     protected override void OnApplicationStart()
-     {
-         // Code here will be executed when the application starts.
-     }
+  * #### From Console Application 
+    ```C#
+    class ExampleApplication : ConsoleApplication
+    {
+        protected override void OnApplicationInitialize()
+        {
+            // Code here will be executed before the application starts.
+            // Should be used in replacement for a constructor for classes that
+            // Inherit from BaseModel.
+        }
+        protected override void OnApplicationStart()
+        {
+            // Code here will be executed when the application starts.
+        }
 
-     protected override void OnApplicationTick()
-     {
-         // Code here will be executed at the beginning of each frame.
-     }
+        protected override void OnApplicationTick()
+        {
+            // Code here will be executed at the beginning of each frame.
+        }
 
-     protected override void OnApplicationLateTick()
-     {
-         // Code here will be executed at the end of each frame.
-     }
+        protected override void OnApplicationLateTick()
+        {
+            // Code here will be executed at the end of each frame.
+        }
 
-     protected override void OnApplicationDraw()
-     {
-         // Code here will be executed when the application draws.
-     }
+        protected override void OnApplicationEnd()
+        {
+            // Code here will be executed when the application ends.
+        }
+    }
 
-     protected override void OnApplicationEnd()
-     {
-         // Code here will be executed when the application ends.
-     }
- }
-```
-  * ### Running the application
+    ```
+  * #### From Windowed Application
+    ```C#
+    class ExampleApplication : WindowApplication
+    {
+        protected override void OnApplicationInitialize()
+        {
+            // Code here will be executed before the application starts.
+            // Should be used in replacement for a constructor for classes that
+            // Inherit from BaseModel. 
+        }
+    
+        protected override void OnApplicationStart()
+        {
+            // Code here will be executed when the application starts.
+        }
+    
+        protected override void OnApplicationTick()
+        {
+            // Code here will be executed at the beginning of each frame.
+        }
+       
+        protected override void OnApplicationLateTick()
+        {
+            // Code here will be executed at the end of each frame.
+        }
+    
+        protected override void OnApplicationDraw()
+        {
+            // Code here will be executed when the application draws.
+        }
+    
+        protected override void OnApplicationEnd()
+        {
+            // Code here will be executed when the application ends.
+        }
+    }
+    ```
+* ### Running the application
 ```C#
 static void Main()
 {
@@ -99,10 +139,15 @@ Features
 ========
 
 * ### Completed
+  * #### ImGui Implementation (10.02.2022)
+  * #### Time Driver (10.02.2022)
+  * #### Integrated Singleton Pattern (10.02.2022)
   * #### Abstract Base Model (10.02.2022)
 * ### In Development
-  * #### Core Engine Framework (09.02.2022)
+  * #### Window Application Framework (10.02.2022)
+  * #### Console Application Framework (10.02.2022)
   * #### Entity Framework (10.02.2022)
+  * #### Core Engine Framework (09.02.2022)
 * ### Planned
    * #### Authentication & Authorization Microservice
      * Web Tokens

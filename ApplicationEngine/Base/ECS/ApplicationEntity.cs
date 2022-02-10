@@ -1,6 +1,7 @@
 ﻿using ApplicationEngine.Extensions;
 
 namespace ApplicationEngine.Base.ECS;
+
 public class ApplicationEntity : BaseModel
 {
     private uint m_Id;
@@ -56,4 +57,5 @@ public class ApplicationEntity : BaseModel
     internal override void ApplicationLateTick() => m_Components.ForEach(c => c.Value?.ApplicationLateTick());
     internal override void ApplicationDraw() => m_Components.ForEach(c => c.Value?.ApplicationDraw());
     internal override void ApplicationEnd() => m_Components.ForEach(c => c.Value?.ApplicationEnd());
+    internal override void ApplicationInitialize() => m_Components.ForEach(c => c.Value?.ApplicationInitialize());
 }

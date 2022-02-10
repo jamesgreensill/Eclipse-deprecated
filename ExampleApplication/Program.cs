@@ -1,6 +1,8 @@
 ﻿using ApplicationEngine.Base;
 using ApplicationEngine.Drivers;
 using ApplicationEngine.Systems;
+using ImGuiNET;
+using Raylib_cs;
 
 namespace ExampleApplication
 {
@@ -11,10 +13,20 @@ namespace ExampleApplication
             ApplicationDriver.Create<ExampleApplication>();
             ApplicationDriver.Run();
         }
-        class ExampleApplication : Application
+
+        class ExampleApplication : WindowApplication
         {
+            public static bool MenuOpen;
+
+            protected override void OnApplicationInitialize()
+            {
+                MenuOpen = true;
+            }
+
             protected override void OnApplicationStart()
             {
+                ImGuiDriver.Instance.Load(Raylib.GetScreenWidth(), Raylib.GetScreenHeight());
+
                 // Code here will be executed when the application starts.
             }
 
@@ -28,14 +40,20 @@ namespace ExampleApplication
                 // Code here will be executed at the end of each frame.
             }
 
-            protected override void OnApplicationDraw()
-            {
-                // Code here will be executed when the application draws.
-            }
-
             protected override void OnApplicationEnd()
             {
                 // Code here will be executed when the application ends.
+            }
+
+            protected override void OnApplicationDraw()
+            {
+                ImGui.Begin("Application Info", ref MenuOpen, ImGuiWindowFlags.MenuBar);
+
+
+                ImGui.BulletText($"FPS: {TimeDriver.Instance.FPS}");
+                ImGui.BulletText($"Frame Time: {TimeDriver.Instance.DeltaTime}");
+
+                ImGui.End();
             }
         }
     }

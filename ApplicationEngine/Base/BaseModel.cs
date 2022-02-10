@@ -2,9 +2,35 @@
 
 public abstract class BaseModel
 {
-    internal abstract void ApplicationStart();
-    internal abstract void ApplicationTick();
-    internal abstract void ApplicationLateTick();
-    internal abstract void ApplicationDraw();
-    internal abstract void ApplicationEnd();
+    internal bool HasInitialized;
+    internal bool HasStarted;
+    internal virtual void ApplicationStart()
+    {
+        // Used for optional overrides.
+    }
+
+    internal virtual void ApplicationTick()
+    {
+        // Used for optional overrides.
+    }
+
+    internal virtual void ApplicationLateTick()
+    {
+        // Used for optional overrides.
+    }
+
+    internal virtual void ApplicationDraw()
+    {
+        // Used for optional overrides.
+    }
+
+    internal virtual void ApplicationEnd()
+    {
+        // Used for optional overrides.
+    }
+
+    internal virtual void ApplicationInitialize()
+    {
+        // Used for optional overrides.
+    }
 }

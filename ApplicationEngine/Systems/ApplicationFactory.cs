@@ -6,6 +6,24 @@ public static class ApplicationFactory
 {
     public static readonly List<BaseModel> Objects = new();
 
+    public static T CreateObject<T>() where T : BaseModel, new()
+    {
+        T model = new();
+
+        if (!model.HasInitialized)
+        {
+            model.ApplicationInitialize();
+            model.HasInitialized = true;
+        }
+        if (!model.HasStarted)
+        {
+            model.ApplicationStart();
+            model.HasStarted = true;
+        }
+        AddObject(model);
+        return model;
+    }
+
     /// <summary>
     /// Add a new object to the application.
     /// </summary>
@@ -64,4 +82,11 @@ public static class ApplicationFactory
     /// <returns>An Array containing all arguments Matching type T</returns>
     public static T[] GetObjects<T>(Predicate<T> match) where T : BaseModel =>
         Objects.FindAll(x => x is T model && match(model)).Cast<T>().ToArray();
+
+    /*
+     *
+     *  TODO: Log null reference return.
+     * 
+     */
+    public static T? GetObjectOfType<T>() where T : BaseModel => (T)Objects.Find(x => x is T)!;
 }

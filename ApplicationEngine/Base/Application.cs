@@ -1,89 +1,117 @@
 ﻿using ApplicationEngine.Base.ECS;
+using ApplicationEngine.Drivers;
 using ApplicationEngine.Systems;
+
 
 namespace ApplicationEngine.Base;
 
-public abstract class Application
-{
-    private List<BaseModel> Objects => ApplicationFactory.Objects;
-    private bool m_IsRunning;
+/// <summary>
+/// This is the base class for all application types. Unless you are to create a custom application type, you shouldn't
+/// inherit from this class.
+/// </summary>
+/*
+Note you will need to implement your own Application Loop.
+A typical loop will look like this:
 
+1->Start
+2->while(running)
+3->    Tick
+4->    LateTick
+5->    Draw (if you are using a rendering engine)
+6->End
+
+*/
+public abstract class Application : BaseModel
+{
+    protected List<BaseModel> Objects => ApplicationFactory.Objects;
+    protected bool IsRunning;
 
     /// <summary>
     /// Base constructor for the application class.
     /// </summary>
-    protected Application()
-    {
-        m_IsRunning = false;
-    }
+    public void Stop() => IsRunning = false;
 
-    public void Run()
-    {
-        m_IsRunning = true;
-        ApplicationStart();
-        while (m_IsRunning)
-        {
-            ApplicationTick();
-
-            ApplicationLateTick();
-
-            ApplicationDraw();
-        }
-
-        ApplicationEnd();
-    }
-
-    public void Stop() => m_IsRunning = false;
-
-
+    public abstract void Run();
+    protected abstract void OnApplicationInitialize();
     protected abstract void OnApplicationStart();
     protected abstract void OnApplicationTick();
     protected abstract void OnApplicationLateTick();
-    protected abstract void OnApplicationDraw();
     protected abstract void OnApplicationEnd();
+
+
+    /// <summary>
+    /// Called before the applications first frame. Use this instead of a constructor for BaseModel and Applications.
+    /// </summary>
+    protected void Initialize()
+    {
+        ApplicationFactory.CreateObject<TimeDriver>();
+
+        if (!HasInitialized)
+        {
+            OnApplicationInitialize();
+            for (int i = 0; i < Objects.Count; i++)
+            {
+                Objects[i].ApplicationInitialize();
+                Objects[i].HasInitialized = true;
+            }
+        }
+
+        HasInitialized = true;
+    }
 
     /// <summary>
     /// Called on the applications first frame.
     /// </summary>
-    private void ApplicationStart()
+    internal sealed override void ApplicationStart()
     {
-        OnApplicationStart();
-        Objects.ForEach(o => o.ApplicationStart());
+        if (!HasStarted)
+        {
+            OnApplicationStart();
+
+            for (int i = 0; i < Objects.Count; i++)
+            {
+                Objects[i].ApplicationTick();
+                Objects[i].HasStarted = true;
+            }
+        }
+
+        HasStarted = true;
     }
 
     /// <summary>
     /// Called at the start of every application frame.
     /// </summary>
-    private void ApplicationTick()
+    internal sealed override void ApplicationTick()
     {
         OnApplicationTick();
-        Objects.ForEach(o => o.ApplicationTick());
+
+        for (int i = 0; i < Objects.Count; i++)
+        {
+            Objects[i].ApplicationTick();
+        }
     }
 
     /// <summary>
     /// Called at the end of every application frame.
     /// </summary>
-    private void ApplicationLateTick()
+    internal sealed override void ApplicationLateTick()
     {
         OnApplicationLateTick();
-        Objects.ForEach(o => o.ApplicationLateTick());
-    }
-
-    /// <summary>
-    /// Called at the start of rendering
-    /// </summary>
-    private void ApplicationDraw()
-    {
-        OnApplicationDraw();
-        Objects.ForEach(o => o.ApplicationDraw());
+        for (int i = 0; i < Objects.Count; i++)
+        {
+            Objects[i].ApplicationLateTick();
+        }
     }
 
     /// <summary>
     /// Called at the end of the applications run.
     /// </summary>
-    private void ApplicationEnd()
+    internal sealed override void ApplicationEnd()
     {
         OnApplicationEnd();
-        Objects.ForEach(o => o.ApplicationEnd());
+        for (int i = 0; i < Objects.Count; i++)
+        {
+            Objects[i].ApplicationEnd();
+        }
     }
 }

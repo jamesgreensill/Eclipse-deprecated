@@ -1,7 +1,6 @@
 ﻿using ApplicationEngine.Base;
-using ApplicationEngine.Systems;
 
-namespace ApplicationEngine.Drivers;
+namespace ApplicationEngine.Systems;
 
 public static class ApplicationDriver
 {
