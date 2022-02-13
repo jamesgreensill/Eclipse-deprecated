@@ -1,6 +1,6 @@
 ﻿namespace ApplicationEngine.Extensions;
 
-static class IEnumerableExtension
+internal static class EnumerableExtension
 {
     public static void ForEach<T>(this IEnumerable<T> collection, Action<T> action)
     {

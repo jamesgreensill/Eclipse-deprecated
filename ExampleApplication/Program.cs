@@ -1,5 +1,7 @@
 ﻿using ApplicationEngine.Base;
+using ApplicationEngine.Base.ApplicationModels;
 using ApplicationEngine.Drivers;
+using ApplicationEngine.Drivers.GraphicsDriver;
 using ApplicationEngine.Systems;
 using ImGuiNET;
 using Raylib_cs;
@@ -10,8 +12,9 @@ namespace ExampleApplication
     {
         static void Main()
         {
-            ApplicationDriver.Create<ExampleApplication>();
-            ApplicationDriver.Run();
+            ApplicationEngine.Systems.ApplicationEngine.Create<ExampleApplication>();
+            ApplicationEngine.Systems.ApplicationEngine.InitializeGraphics<RaylibDriver>();
+            ApplicationEngine.Systems.ApplicationEngine.Run();
         }
 
         class ExampleApplication : WindowApplication
@@ -48,11 +51,8 @@ namespace ExampleApplication
             protected override void OnApplicationDraw()
             {
                 ImGui.Begin("Application Info", ref MenuOpen, ImGuiWindowFlags.MenuBar);
-
-
                 ImGui.BulletText($"FPS: {TimeDriver.Instance.FPS}");
                 ImGui.BulletText($"Frame Time: {TimeDriver.Instance.DeltaTime}");
-
                 ImGui.End();
             }
         }

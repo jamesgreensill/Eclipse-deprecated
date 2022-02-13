@@ -1,9 +1,8 @@
-﻿using ApplicationEngine.Base.ECS;
+﻿using System.Numerics;
 using ApplicationEngine.Drivers;
 using ApplicationEngine.Systems;
 
-
-namespace ApplicationEngine.Base;
+namespace ApplicationEngine.Base.Abstract;
 
 /// <summary>
 /// This is the base class for all application types. Unless you are to create a custom application type, you shouldn't
@@ -26,6 +25,8 @@ public abstract class Application : BaseModel
     protected List<BaseModel> Objects => ApplicationFactory.Objects;
     protected bool IsRunning;
 
+    protected ApplicationSettings Settings { get; set; }
+
     /// <summary>
     /// Base constructor for the application class.
     /// </summary>
@@ -38,6 +39,7 @@ public abstract class Application : BaseModel
     protected abstract void OnApplicationLateTick();
     protected abstract void OnApplicationEnd();
 
+    public void SetSettings(ApplicationSettings settings) => Settings = settings;
 
     /// <summary>
     /// Called before the applications first frame. Use this instead of a constructor for BaseModel and Applications.
@@ -114,4 +116,47 @@ public abstract class Application : BaseModel
             Objects[i].ApplicationEnd();
         }
     }
+}
+
+public struct ApplicationSettings
+{
+    public static ApplicationSettings Default = new()
+    {
+        Width = 1280,
+        Height = 720,
+        Title = "Application",
+        Position = new Vector2(0, 0),
+        Fullscreen = false,
+        Resizable = true,
+        Borderless = false,
+        Visible = true,
+        Minimized = false,
+        Maximized = false,
+        Focused = true,
+        CursorVisible = true
+    };
+
+    public Vector2 Position { get; set; }
+
+    public int Width { get; set; }
+
+    public int Height { get; set; }
+
+    public string Title { get; set; }
+
+    public bool Fullscreen { get; set; }
+
+    public bool Resizable { get; set; }
+
+    public bool Borderless { get; set; }
+
+    public bool Visible { get; set; }
+
+    public bool Minimized { get; set; }
+
+    public bool Maximized { get; set; }
+
+    public bool Focused { get; set; }
+
+    public bool CursorVisible { get; set; }
 }

@@ -1,6 +1,7 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Runtime.InteropServices;
+using ApplicationEngine.Base.Abstract;
 
-namespace ApplicationEngine.Base;
+namespace ApplicationEngine.Base.ApplicationModels;
 
 public abstract class ConsoleApplication : Application
 {
