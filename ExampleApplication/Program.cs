@@ -13,11 +13,11 @@ namespace ExampleApplication
         static void Main()
         {
             ApplicationEngine.Systems.ApplicationEngine.Create<ExampleApplication>();
-            ApplicationEngine.Systems.ApplicationEngine.InitializeGraphics<RaylibDriver>();
+            //Eclipse.Systems.Eclipse.InitializeGraphics<RaylibDriver>();
             ApplicationEngine.Systems.ApplicationEngine.Run();
         }
 
-        class ExampleApplication : WindowApplication
+        class ExampleApplication : ConsoleApplication
         {
             public static bool MenuOpen;
 
@@ -28,13 +28,14 @@ namespace ExampleApplication
 
             protected override void OnApplicationStart()
             {
-                ImGuiDriver.Instance.Load(Raylib.GetScreenWidth(), Raylib.GetScreenHeight());
+                //ImGuiDriver.Instance.Load(Raylib.GetScreenWidth(), Raylib.GetScreenHeight());
 
                 // Code here will be executed when the application starts.
             }
 
             protected override void OnApplicationTick()
             {
+                Console.WriteLine("Tick");
                 // Code here will be executed at the beginning of each frame.
             }
 
@@ -48,13 +49,13 @@ namespace ExampleApplication
                 // Code here will be executed when the application ends.
             }
 
-            protected override void OnApplicationDraw()
-            {
-                ImGui.Begin("Application Info", ref MenuOpen, ImGuiWindowFlags.MenuBar);
-                ImGui.BulletText($"FPS: {TimeDriver.Instance.FPS}");
-                ImGui.BulletText($"Frame Time: {TimeDriver.Instance.DeltaTime}");
-                ImGui.End();
-            }
+            // protected override void OnApplicationDraw()
+            // {
+            //     ImGui.Begin("Application Info", ref MenuOpen, ImGuiWindowFlags.MenuBar);
+            //     ImGui.BulletText($"FPS: {TimeDriver.Instance.FPS}");
+            //     ImGui.BulletText($"Frame Time: {TimeDriver.Instance.DeltaTime}");
+            //     ImGui.End();
+            // }
         }
     }
 }

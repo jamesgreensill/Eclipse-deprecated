@@ -22,7 +22,11 @@ A typical loop will look like this:
 */
 public abstract class Application : BaseModel
 {
-    protected List<BaseModel> Objects => ApplicationFactory.Objects;
+    protected List<BaseModel> Objects
+    {
+        get => ApplicationFactory.Objects;
+    }
+
     protected bool IsRunning;
 
     protected ApplicationSettings Settings { get; set; }
@@ -51,10 +55,14 @@ public abstract class Application : BaseModel
         if (!HasInitialized)
         {
             OnApplicationInitialize();
-            for (int i = 0; i < Objects.Count; i++)
+            if (Objects.Count > 0)
             {
-                Objects[i].ApplicationInitialize();
-                Objects[i].HasInitialized = true;
+                for (var index = 0; index < Objects.Count; index++)
+                {
+                    var OBJ = Objects[index];
+                    OBJ.ApplicationInitialize();
+                    OBJ.HasInitialized = true;
+                }
             }
         }
 
@@ -69,11 +77,14 @@ public abstract class Application : BaseModel
         if (!HasStarted)
         {
             OnApplicationStart();
-
-            for (int i = 0; i < Objects.Count; i++)
+            if (Objects.Count > 0)
             {
-                Objects[i].ApplicationTick();
-                Objects[i].HasStarted = true;
+                for (var index = 0; index < Objects.Count; index++)
+                {
+                    var OBJ = Objects[index];
+                    OBJ.ApplicationTick();
+                    OBJ.HasStarted = true;
+                }
             }
         }
 
@@ -87,9 +98,13 @@ public abstract class Application : BaseModel
     {
         OnApplicationTick();
 
-        for (int i = 0; i < Objects.Count; i++)
+        if (Objects.Count > 0)
         {
-            Objects[i].ApplicationTick();
+            for (var index = 0; index < Objects.Count; index++)
+            {
+                var OBJ = Objects[index];
+                OBJ.ApplicationTick();
+            }
         }
     }
 
@@ -99,9 +114,13 @@ public abstract class Application : BaseModel
     internal sealed override void ApplicationLateTick()
     {
         OnApplicationLateTick();
-        for (int i = 0; i < Objects.Count; i++)
+        if (Objects.Count > 0)
         {
-            Objects[i].ApplicationLateTick();
+            for (var index = 0; index < Objects.Count; index++)
+            {
+                var OBJ = Objects[index];
+                OBJ.ApplicationLateTick();
+            }
         }
     }
 
@@ -111,9 +130,13 @@ public abstract class Application : BaseModel
     internal sealed override void ApplicationEnd()
     {
         OnApplicationEnd();
-        for (int i = 0; i < Objects.Count; i++)
+        if (Objects.Count > 0)
         {
-            Objects[i].ApplicationEnd();
+            for (var index = 0; index < Objects.Count; index++)
+            {
+                var OBJ = Objects[index];
+                OBJ.ApplicationEnd();
+            }
         }
     }
 }

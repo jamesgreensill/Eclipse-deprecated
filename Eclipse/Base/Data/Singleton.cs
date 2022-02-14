@@ -14,10 +14,8 @@ public abstract class Singleton<T> : BaseModel where T : BaseModel, new()
             if (m_Instance != null)
                 return m_Instance;
             m_Instance = ApplicationFactory.GetObjectOfType<T>();
-
             if (m_Instance != null)
                 return m_Instance;
-
             m_Instance = ApplicationFactory.CreateObject<T>();
             return m_Instance;
         }
